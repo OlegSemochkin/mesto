@@ -1,0 +1,25 @@
+.profile-info {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  column-gap: 18px;
+  row-gap: 16px;
+  grid-template-areas:
+    'name edit'
+    'prof prof';
+  padding-top: 22px;
+  padding-bottom: 25px;
+  padding-left: 3.75px;
+  justify-self: flex-end;
+  align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .profile-info {
+    grid-template-columns: 1fr 18px;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding-bottom: 32px;
+    padding-left: 0;
+    padding-right: 18px;
+  }
+}

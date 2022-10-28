@@ -1,0 +1,13 @@
+.element__like_active {
+  width: 22px;
+  height: 19px;
+  transition: opacity .5s ease-in-out;
+  background-image: url(../../../../images/heart_dark.svg);
+  border: none;
+  background-color: transparent;
+}
+
+.element__like_active:hover {
+  opacity: .5;
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+.profile__card {
+  display: flex;
+  margin-left: -22.5px;
+}
+
+@media screen and (max-width: 1100px) {
+  .profile__card {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .profile__card {
+    flex-direction: column;
+    width: 100%;
+  }
+}

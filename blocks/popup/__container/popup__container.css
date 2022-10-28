@@ -1,0 +1,17 @@
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 195px;
+  left: 425px;
+  /* transform: translate(-50%, -50%); */
+  min-width: 430px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .popup__container {
+    min-width: 88vw;
+  }
+}
