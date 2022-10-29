@@ -1,9 +1,9 @@
 .element__title {
- display: grid;
- grid-template-columns: auto 22px;
- justify-content: space-between;
- align-items: center;
- padding: 25px 30px 30px 21px;
- background-color: #ffffff;   
- border-radius: 0 0 10px 10px;
+  display: grid;
+  grid-template-columns: auto 22px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px 30px 21px;
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
 }
