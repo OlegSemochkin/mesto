@@ -1,4 +1,5 @@
 .element__like {
+  padding: 0;
   width: 22px;
   height: 19px;
   transition: opacity .5s ease-in-out;
@@ -6,7 +7,6 @@
   border: none;
   background-color: transparent;
 }
-
 
 .element__like:hover {
   opacity: .5;

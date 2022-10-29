@@ -1,6 +1,6 @@
 .popup {
-  display: none;  
-} 
+  display: none;
+}
 
 .popup::before {
   content: '';
@@ -8,8 +8,8 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;  
+  bottom: 0;
   background-color: #000000;
   opacity: .5;
   z-index: 0;
-} 
+}

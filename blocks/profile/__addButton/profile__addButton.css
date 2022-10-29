@@ -2,7 +2,6 @@
   padding: 0;
   width: 150px;
   height: 50px;
-  /* padding: 12px 60px; */
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   background-color: #000000;
@@ -19,6 +18,7 @@
     width: 12vw;
   }
 }
+
 @media screen and (max-width: 700px) {
   .profile__addButton {
     width: 282px;

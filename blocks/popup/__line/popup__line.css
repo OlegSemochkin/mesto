@@ -1,11 +1,6 @@
 .popup__line {
   margin: 0;
-  /* margin-block-end: none;
-  margin-block-start: none;
-  margin-inline-end: none;
-  margin-inline-start: none; */
   opacity: 0.2;
-  /* border: 1px solid #000000; */
   margin-bottom: 30px;
   margin-left: 36px;
   margin-right: 36px;
