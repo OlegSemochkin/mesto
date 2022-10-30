@@ -1,4 +1,4 @@
-.popup__formElement {
+.popup__form-element {
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .popup__formElement {
+  .popup__form-element {
     margin-top: 36px;
   }
 }
