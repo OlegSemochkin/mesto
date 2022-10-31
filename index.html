@@ -6,73 +6,80 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <title>MESTO</title>
+  <title>МЕСТО</title>
 </head>
 
 <body class="body">
   <header class="header">
     <img class="header__logo" src="./images/logo.svg" alt="Место Россия">
-    <!--сделал линию с помощью div, т.к. если делать border-bottom у header, то его придется margin снаружи, а нас учили,
-       что самостоятельный блок не должен этого иметь, но если в данном случае это допустимо, то могу пойти этим путем-->
-    <div class="header__line"></div>
   </header>
   <main class="main">
     <section class="profile">
       <div class="profile__card">
-        <div class="profile__avatar">
-          <img class="profile__image" src="./images/custo.jpg" alt="Аватарка">
-        </div>
-        <div class="profile-info">
-          <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-          <button class="profile-info__edit-button" type="button"></button>
-          <p class="profile-info__job">Исследователь океана</p>
+        <img class="profile__image" src="./images/custo.jpg" alt="Аватарка">
+        <div class="profile__profile-info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__job">Исследователь океана</p>
         </div>
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
-    <section>
-      <ul class="elements">
-        <li class="element">
-          <img class="element__photo" src="./images/aktru.jpeg" alt="Алтай. Гора Актру">
-          <div class="element__title">
-            <h2 class="element__place">Алтай. Гора Актру</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+    <section class="elements">
+      <ul class="elements__gallery">
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/1.jpg" alt="Алтай. Гора Актру">
+            <div class="element__title">
+              <h2 class="element__place">Алтай. Гора Актру</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
-        <li class="element">
-          <img class="element__photo" src="./images/baikal.jpeg" alt="Байкал">
-          <div class="element__title">
-            <h2 class="element__place">Байкал</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/baikal.jpeg" alt="Байкал">
+            <div class="element__title">
+              <h2 class="element__place">Байкал</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
-        <li class="element">
-          <img class="element__photo" src="./images/katun.jpeg" alt="Катунь">
-          <div class="element__title">
-            <h2 class="element__place">Катунь</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/katun.jpeg" alt="Катунь">
+            <div class="element__title">
+              <h2 class="element__place">Катунь</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
-        <li class="element">
-          <img class="element__photo" src="./images/tomsk.jpeg" alt="Томск">
-          <div class="element__title">
-            <h2 class="element__place">Томск - Сибирские Афины</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/tomsk.jpeg" alt="Томск">
+            <div class="element__title">
+              <h2 class="element__place">Томск - Сибирские Афины</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
-        <li class="element">
-          <img class="element__photo" src="./images/milky_way.jpeg" alt="Млечный путь">
-          <div class="element__title">
-            <h2 class="element__place">Млечный путь</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/milky_way.jpeg" alt="Млечный путь">
+            <div class="element__title">
+              <h2 class="element__place">Млечный путь</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
-        <li class="element">
-          <img class="element__photo" src="./images/katun2.jpeg" alt="Катунь">
-          <div class="element__title">
-            <h2 class="element__place">Катунь</h2>
-            <button class="element__like" type="button"></button>
-          </div>
+        <li>
+          <article class="element">
+            <img class="element__photo" src="./images/katun2.jpeg" alt="Катунь">
+            <div class="element__title">
+              <h2 class="element__place">Катунь</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </article>
         </li>
       </ul>
     </section>

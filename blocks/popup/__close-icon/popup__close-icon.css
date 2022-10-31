@@ -8,7 +8,9 @@
   width: 32px;
   height: 32px;
   transition: opacity .5s ease-in-out;
-  margin-right: -40px;
+  position: absolute;
+  top: 155px;
+  right: 345px;
 }
 
 .popup__close-icon:hover {
