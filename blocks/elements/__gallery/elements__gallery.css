@@ -18,11 +18,16 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .elements__gallery {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .elements__gallery {
     padding-left: 19px;
     padding-right: 19px;
-    display: flex;
-    flex-direction: column;
   }
 }

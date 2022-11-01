@@ -4,8 +4,8 @@ let userName = editForm.querySelector('.profile__name');
 let userJob = editForm.querySelector('.profile__job');
 let popup = document.querySelector('.popup');
 let closeButton = popup.querySelector('.popup__close-icon');
-let nameInput = popup.querySelector('.popup__name-input');
-let jobInput = popup.querySelector('.popup__job-input');
+let nameInput = popup.querySelector('.popup__input_el_name');
+let jobInput = popup.querySelector('.popup__input_el_job');
 let form = popup.querySelector('.popup__form-element');
 
 function openPopup() {

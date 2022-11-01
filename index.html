@@ -29,7 +29,7 @@
       <ul class="elements__gallery">
         <li>
           <article class="element">
-            <img class="element__photo" src="./images/1.jpg" alt="Алтай. Гора Актру">
+            <img class="element__photo" src="./images/aktru.jpeg" alt="Алтай. Гора Актру">
             <div class="element__title">
               <h2 class="element__place">Алтай. Гора Актру</h2>
               <button class="element__like" type="button"></button>
@@ -90,10 +90,10 @@
   <div class="popup">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <form class="popup__form-element">
+      <form class="popup__form-element" name="edit-form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__name-input" value="Жак-Ив Кусто">
-        <input type="text" class="popup__job-input" value="Исследователь океана">
+        <input type="text" name="firstname" class="popup__input popup__input_el_name" value="Жак-Ив Кусто">
+        <input type="text" name="job" class="popup__input popup__input_el_job" value="Исследователь океана">
         <button type="submit" class="popup__submit-button">Сохранить</button>
       </form>
     </div>

@@ -1,5 +1,9 @@
 .element__photo {
   width: 100%;
   border-radius: 10px 10px 0 0;
-  grid-area: photo;
+  object-fit: cover;
+  /* чтобы оставались квадратными при сжатии-растяжении*/
+  aspect-ratio: 1/1;
+  /* или так, но менее красиво  */
+  /* height: 282px;*/
 }

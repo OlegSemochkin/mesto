@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 24px;
   column-gap: 18px;
-  row-gap: 16px;
+  row-gap: 6px;
   grid-template-areas:
     'name edit'
     'prof prof';

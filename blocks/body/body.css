@@ -10,4 +10,6 @@
   -moz-text-size-adjust: 100%;
   position: relative;
   max-width: 1280px;
+  display: flex;
+  flex-direction: column;
 }
