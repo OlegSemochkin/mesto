@@ -8,7 +8,9 @@
   width: 32px;
   height: 32px;
   transition: opacity .5s ease-in-out;
-  margin-left: 438px;
+  position: absolute;
+  top: -40px;
+  right: 0;
 }
 
 .popup__close-icon:hover {
@@ -20,6 +22,6 @@
   .popup__close-icon {
     width: 20px;
     height: 20px;
-    margin-left: 262px;
+    top: -36px;
   }
 }
