@@ -38,8 +38,8 @@
       <button class="popup__close-icon" type="button"></button>
       <form class="popup__form-element" name="edit-form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="firstname" class="popup__input popup__input_el_name" value="ddddКусто">
-        <input type="text" name="job" class="popup__input popup__input_el_job" value="Исследователь океана">
+        <input type="text" name="firstname" class="popup__input popup__input_el_name" >
+        <input type="text" name="job" class="popup__input popup__input_el_job">
         <button type="submit" class="popup__submit-button">Сохранить</button>
       </form>
     </div>
@@ -49,17 +49,17 @@
       <button class="popup__close-icon" type="button"></button>
       <form class="popup__form-element" name="add-form">
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" name="place" class="popup__input popup__input_el_place" placeholder="Название" value="">
-        <input type="text" name="link" class="popup__input popup__input_el_link" placeholder="Ссылка на картинку" value="">
+        <input type="text" name="place" class="popup__input popup__input_el_place" placeholder="Название" >
+        <input type="text" name="link" class="popup__input popup__input_el_link" placeholder="Ссылка на картинку">
         <button type="submit" class="popup__submit-button">Создать</button>
       </form>
     </div>
   </div>
   <div class="popup popup_image">
-    <div class="popup__container_show">
+    <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <img class="element__photo_show" src="x" alt="x">
-      <h2 class="element__place_show"></h2>
+      <img class="element__photo element__photo_show" src="x" alt="x">
+      <h2 class="element__place element__place_show"></h2>
     </div>
   </div>
   <template id="card">
