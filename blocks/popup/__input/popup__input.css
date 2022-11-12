@@ -11,6 +11,34 @@
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
+.popup__input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+}
+
+.popup__input::-webkit-input-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+}
+
+.popup__input::-moz-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+}
+
+.popup__input::-ms-input-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+}
+
 @media screen and (max-width: 500px) {
     .popup__input {
         margin-left: 21px;

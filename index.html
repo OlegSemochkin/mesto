@@ -27,78 +27,56 @@
     </section>
     <section class="elements">
       <ul class="elements__gallery">
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/aktru.jpeg" alt="Алтай. Гора Актру">
-            <div class="element__title">
-              <h2 class="element__place">Алтай. Гора Актру</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/baikal.jpeg" alt="Байкал">
-            <div class="element__title">
-              <h2 class="element__place">Байкал</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/katun.jpeg" alt="Катунь">
-            <div class="element__title">
-              <h2 class="element__place">Катунь</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/tomsk.jpeg" alt="Томск">
-            <div class="element__title">
-              <h2 class="element__place">Томск - Сибирские Афины</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/milky_way.jpeg" alt="Млечный путь">
-            <div class="element__title">
-              <h2 class="element__place">Млечный путь</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="element">
-            <img class="element__photo" src="./images/katun2.jpeg" alt="Катунь">
-            <div class="element__title">
-              <h2 class="element__place">Катунь</h2>
-              <button class="element__like" type="button" aria-label="Голосовать"></button>
-            </div>
-          </article>
-        </li>
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_edit">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
       <form class="popup__form-element" name="edit-form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="firstname" class="popup__input popup__input_el_name" value="Жак-Ив Кусто">
+        <input type="text" name="firstname" class="popup__input popup__input_el_name" value="ddddКусто">
         <input type="text" name="job" class="popup__input popup__input_el_job" value="Исследователь океана">
         <button type="submit" class="popup__submit-button">Сохранить</button>
       </form>
     </div>
   </div>
+  <div class="popup popup_add">
+    <div class="popup__container">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="popup__form-element" name="add-form">
+        <h2 class="popup__title">Новое место</h2>
+        <input type="text" name="place" class="popup__input popup__input_el_place" placeholder="Название" value="">
+        <input type="text" name="link" class="popup__input popup__input_el_link" placeholder="Ссылка на картинку"  value="">
+        <button type="submit" class="popup__submit-button">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_image">
+    <div class="popup__container_show">
+      <button class="popup__close-icon" type="button"></button>
+      <img class="element__photo_show" src="" alt="">
+      <h2 class="element__place_show"></h2>
+    </div>
+  </div>
+  <template id="card">
+    <li>
+      <article class="element">
+        <button class="element__basket" type="button" aria-label="Удалить"></button>
+        <img class="element__photo" src="" alt="">
+        <div class="element__title">
+          <h2 class="element__place"></h2>
+          <button class="element__like" type="button" aria-label="Голосовать"></button>
+        </div>
+      </article>
+    </li>
+    </template>
   <script src="./scripts/index.js"></script>
+
+  
 </body>
 
 </html>

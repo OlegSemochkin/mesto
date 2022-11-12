@@ -1,0 +1,16 @@
+.popup_close {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  animation: close 2s forwards;
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
