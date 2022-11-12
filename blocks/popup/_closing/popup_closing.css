@@ -1,8 +1,9 @@
-.popup_close {
+.popup_closing {
   display: flex;
+  z-index: 2;
   visibility: visible;
   opacity: 1;
-  animation: close 2s forwards;
+  animation: close 1s forwards;
 }
 
 @keyframes close {
