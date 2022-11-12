@@ -119,8 +119,8 @@ const generateCard = (dataCard) => {
 
   const openPopupImg = newCard.querySelector('.element__photo').addEventListener('click', () => {
     openPopup(popupImg);
-    document.querySelector('.element__photo_show').src = img.src;
-    document.querySelector('.element__place_show').textContent = place.textContent;
+    document.querySelector('.element__img').src = img.src;
+    document.querySelector('.element__description').textContent = place.textContent;
   });
 
   const closePopupImg = popupImg.querySelector('.popup__close-icon').addEventListener('click', () => {
