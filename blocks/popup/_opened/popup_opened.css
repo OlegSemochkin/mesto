@@ -2,16 +2,5 @@
   display: flex;
   z-index: 2;
   visibility: visible;
-  opacity: 0;
-  animation: open 1s forwards;
-}
-
-@keyframes open {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  opacity: 1;
 }

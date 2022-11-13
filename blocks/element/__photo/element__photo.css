@@ -5,6 +5,7 @@
   /* чтобы оставались квадратными при сжатии-растяжении*/
   aspect-ratio: 1/1;
   transition: opacity .5s ease-in-out;
+  color: #ffffff;
 }
 
 .element__photo:hover {
