@@ -26,9 +26,9 @@ openPopupEditButton.addEventListener('click', () => {
 closePopupEditButton.addEventListener('click', () => {
   closePopup(popupEdit);
 });
-formEdit.addEventListener('submit', EditformSubmitHandler);
+formEdit.addEventListener('submit', editformSubmitHandler);
 
-function EditformSubmitHandler(evt) {
+function editformSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   userJob.textContent = jobInput.value;
@@ -49,9 +49,9 @@ openPopupAddButton.addEventListener('click', () => {
 closePopupAddButton.addEventListener('click', () => {
   closePopup(popupAdd);
 });
-formAdd.addEventListener('submit', AddformSubmitHandler);
+formAdd.addEventListener('submit', addformSubmitHandler);
 
-function AddformSubmitHandler(evt) {
+function addformSubmitHandler(evt) {
   evt.preventDefault();
   renderCard({
     name: placeInput.value,
