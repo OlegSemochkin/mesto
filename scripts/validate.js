@@ -1,23 +1,32 @@
+const enableValidation = ({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error-line',
+  errorClass: 'popup__input_type_error-message'
+});
 
 
-//выводим текст ошибки валидации и подчеркиваем поле
+
+//показываем текст ошибки валидации и подчеркиваем поле
 
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
-  inputElement.classList.add('popup__input_type_error-line');
+  inputElement.classList.add(enableValidation.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__input_type_error-message');
+  errorElement.classList.add(enableValidation.errorClass);
 }
 
 //скрываем при устранении 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
-  inputElement.classList.remove('popup__input_type_error-line');
+  inputElement.classList.remove(enableValidation.inputErrorClass);
   errorElement.textContent = '';
-  errorElement.classList.remove('popup__input_type_error-message');
+  errorElement.classList.remove(enableValidation.errorClass);
 }
 
-//проверяем валидность данных в поле 
+//проверяем валидность данных в поле и принимаем решение показать/скрыть текст ошибки
 const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage)
@@ -26,11 +35,10 @@ const isValid = (formElement, inputElement) => {
   }
 }
 
-
 //формируем список инпутов в форме и ставим на каждый слушатель
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-  const submitButton = formElement.querySelector('.popup__button');
+const setInputEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(enableValidation.inputSelector));
+  const submitButton = formElement.querySelector(enableValidation.submitButtonSelector);
   setSubmitButtonState(inputList, submitButton);
 
   inputList.forEach((inputElement) => {
@@ -41,7 +49,7 @@ const setEventListeners = (formElement) => {
   });
 }
 
-//проверка все-ли поля импутов в текущей форме валидны
+//проверяем все ли поля импутов в текущей форме валидны
 function isFormInvalid(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
@@ -50,23 +58,23 @@ function isFormInvalid(inputList) {
 }
 
 //формируем список форм в документе и для каждой применяем 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+const setFormEventListeners = () => {
+  const formList = Array.from(document.querySelectorAll(enableValidation.formSelector));
   formList.forEach((formElement) => {
-    setEventListeners(formElement);
+    setInputEventListeners(formElement);
   })
 };
 
-enableValidation();
+setFormEventListeners();
 
 //стилизация кнопки и ее функционал (акт/неакт)
 function setSubmitButtonState(inputList, submitButton) {
   if (isFormInvalid(inputList)) {
     submitButton.setAttribute('disabled', true);
-    submitButton.classList.add('popup__button_disabled');
+    submitButton.classList.add(enableValidation.inactiveButtonClass);
   } else {
     submitButton.removeAttribute('disabled');
-    submitButton.classList.remove('popup__button_disabled');
+    submitButton.classList.remove(enableValidation.inactiveButtonClass);
   }
 }
 
