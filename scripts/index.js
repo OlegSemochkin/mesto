@@ -1,39 +1,40 @@
 //открытие окна
+
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup)
-    }
-  })
+  
 
-  popup.addEventListener('click', (evt) => {
-    if (evt.target == evt.currentTarget) {
-      closePopup(popup);
-    }
-  })
+  
+  
+
+  
 }
 
 //закрытие окна
+function escClosePopup (evt, popup) {
+  if (evt.key === 'Escape') {
+    closePopup(popup)
+  }
+}
+
+function outClosePopup (evt, popup) {
+  if (evt.target == evt.currentTarget) {
+    closePopup(popup);
+  }
+}
+
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 
-  const button = popup.querySelector('.popup__button');
-  button.setAttribute('disabled', true);
-  button.classList.add('popup__button_disabled');
+  // const button = popup.querySelector('.popup__button');
+  // button.setAttribute('disabled', true);
+  // button.classList.add('popup__button_disabled');
   
-  document.removeEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup)
-    }
-  })
+  document.removeEventListener('keydown', escClosePopup)
 
-  popup.removeEventListener('click', (evt) => {
-    if (evt.target == evt.currentTarget) {
-      closePopup(popup);
-    }
-  })
+  popup.removeEventListener('click', outClosePopup)
 }
 
 //редактирование профиля
@@ -50,6 +51,8 @@ const jobInput = formEdit.elements.job;
 
 openPopupEditButton.addEventListener('click', () => {
   openPopup(popupEdit);
+  document.addEventListener('keydown', escClosePopup(popupEdit));
+ // popupEdit.addEventListener('click', outClosePopup(popupEdit));
   nameInput.value = userName.textContent;
   jobInput.value = userJob.textContent;
 });
