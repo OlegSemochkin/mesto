@@ -1,11 +1,13 @@
-const enableValidation = ({
+const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error-line',
   errorClass: 'popup__input_type_error-message'
-});
+};
+
+const enableValidation = (validationConfig);
 
 
 
@@ -78,3 +80,8 @@ function setSubmitButtonState(inputList, submitButton) {
   }
 }
 
+function disableSubmitButton(formElement) {
+  const submitButton = formElement.querySelector(enableValidation.submitButtonSelector);
+  submitButton.setAttribute('disabled', true);
+  submitButton.classList.add(enableValidation.inactiveButtonClass);
+}
