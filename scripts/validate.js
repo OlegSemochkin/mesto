@@ -9,10 +9,7 @@ const validationConfig = {
 
 const enableValidation = (validationConfig);
 
-
-
 //показываем текст ошибки валидации и подчеркиваем поле
-
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
   inputElement.classList.add(enableValidation.inputErrorClass);
@@ -59,14 +56,13 @@ function isFormInvalid(inputList) {
   })
 }
 
-//формируем список форм в документе и для каждой применяем 
+//формируем список форм в документе и для каждой применяем список инпутов
 const setFormEventListeners = () => {
   const formList = Array.from(document.querySelectorAll(enableValidation.formSelector));
   formList.forEach((formElement) => {
     setInputEventListeners(formElement);
   })
 };
-
 setFormEventListeners();
 
 //стилизация кнопки и ее функционал (акт/неакт)
@@ -80,6 +76,7 @@ function setSubmitButtonState(inputList, submitButton) {
   }
 }
 
+//неактивная для сброса ошибок при открытии окна
 function disableSubmitButton(formElement) {
   const submitButton = formElement.querySelector(enableValidation.submitButtonSelector);
   submitButton.setAttribute('disabled', true);

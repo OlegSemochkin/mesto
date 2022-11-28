@@ -32,15 +32,14 @@ function outClosePopup (evt) {
 }
 
 //редактирование профиля
-const editForm = document.querySelector('.profile__profile-info');
-const openPopupEditButton = editForm.querySelector('.profile__edit-button');
-const userName = editForm.querySelector('.profile__name');
-const userJob = editForm.querySelector('.profile__job');
+const profileForm = document.querySelector('.profile__profile-info');
+const openPopupEditButton = profileForm.querySelector('.profile__edit-button');
+const userName = profileForm.querySelector('.profile__name');
+const userJob = profileForm.querySelector('.profile__job');
 const popupEditProfile = document.querySelector('.popup_edit');
 const formEditProfile = document.forms.edit;
 const nameInput = formEditProfile.elements.firstname;
 const jobInput = formEditProfile.elements.job;
-
 
 openPopupEditButton.addEventListener('click', () => {
   openPopup(popupEditProfile);
@@ -52,14 +51,12 @@ openPopupEditButton.addEventListener('click', () => {
 });
 
 formEditProfile.addEventListener('submit', editFormSubmitHandler);
-
 function editFormSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   userJob.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
-
 
 //добавление карточки вручную
 const openPopupAddButton = document.querySelector('.profile__add-button');
@@ -76,7 +73,6 @@ openPopupAddButton.addEventListener('click', () => {
 });
 
 formAddCard.addEventListener('submit', addFormSubmitHandler);
-
 function addFormSubmitHandler(evt) {
   evt.preventDefault();
   renderCard({
@@ -88,11 +84,24 @@ function addFormSubmitHandler(evt) {
 }
 
 //отрисовка карт, с данными, хранящимися в массиве
-
-//создаем карточку и вносим в нее данные из массива
 const cardTemplate = document.querySelector('#card').content.querySelector('.element');
 const gallery = document.querySelector('.elements__gallery');
+const popupImg = document.querySelector('.popup_image');
+const addImg = document.querySelector('.element__img');
+const addDescription = document.querySelector('.element__description');
+gallery.addEventListener('click', function (evt) {
+  if (evt.target.classList.contains('element__like')) {
+    evt.target.classList.toggle('element__like_active')
+  };
+})
 
+gallery.addEventListener('click', function (evt) {
+  if (evt.target.classList.contains('element__del')) {
+    evt.target.closest('.element').remove();
+  };
+})
+
+//создаем карточку и вносим в нее данные из массива
 const generateCard = (dataCard) => {
   const newCard = cardTemplate.cloneNode(true);
 
@@ -101,27 +110,9 @@ const generateCard = (dataCard) => {
 
   const img = newCard.querySelector('.element__photo');
   img.src = dataCard.link;
-  img.alt = dataCard.name;
+  img.alt = dataCard.name;  
 
-  //добавляем отслеживание событий
-  newCard.querySelector('.element__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like_active');
-  });
-
-  newCard.querySelector('.element__del').addEventListener('click', function (evt) {
-    evt.target.closest('.element').remove();
-  });
-////////
- 
-  
-
-  //добавляем окно просмотра карточки
-  const popupImg = document.querySelector('.popup_image');//
-  const openPopupImgButton = newCard.querySelector('.element__photo');
-  const closePopupImgButton = popupImg.querySelector('.popup__close-icon');//
-  const addImg = document.querySelector('.element__img');//
-  const addDescription = document.querySelector('.element__description');//
-
+  const openPopupImgButton = img; 
   openPopupImgButton.addEventListener('click', () => {
     openPopup(popupImg);
     addImg.src = img.src;
@@ -131,8 +122,6 @@ const generateCard = (dataCard) => {
   
   return newCard;
 }
-
-
 
 //вставляем карточку на страницу
 const renderCard = (dataCard) => {
