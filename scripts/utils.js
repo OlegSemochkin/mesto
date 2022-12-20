@@ -30,3 +30,17 @@ function outClosePopup(evt) {
     closePopup(document.querySelector('.popup_opened'));
   }
 }
+
+//неактивная кнопка при открытии окна
+export function disableSubmitButton(formElement) {
+  const submitButton = formElement.querySelector('.popup__button');
+  submitButton.setAttribute('disabled', true);
+  submitButton.classList.add('popup__button_disabled');
+}
+//скрытие ошибок при открытии окна
+export const hideInputError = (formElement, inputElement) => {
+    const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
+    inputElement.classList.remove('.popup__button_disabled');
+    errorElement.textContent = '';
+    inputElement.classList.remove('popup__input_type_error-line');
+  }

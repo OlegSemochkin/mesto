@@ -4,8 +4,12 @@ export class Card {
     this._place = place;
     this._image = image;
     this._popup = bigPhoto.popup;
-    this._photo = bigPhoto.photo;
-    this._description = bigPhoto.description;
+    this._showPhoto = bigPhoto.photo;
+    this._showDescription = bigPhoto.description;
+    this._element = this._getTemplate();
+    this._title = this._element.querySelector('.element__place');
+    this._photo = this._element.querySelector('.element__photo');
+    this._likeButton = this._element.querySelector('.element__like')
   }
 
   _getTemplate() {
@@ -16,11 +20,10 @@ export class Card {
     return cardTemplate;
   }
 
-  generateCard() {
-    this._element = this._getTemplate();
-    this._element.querySelector('.element__place').textContent = this._place;
-    this._element.querySelector('.element__photo').src = this._image;
-    this._element.querySelector('.element__photo').alt = this._place;
+  generateCard() {    
+    this._title.textContent = this._place;
+    this._photo.src = this._image;
+    this._photo.alt = this._place;
     this._setEventListeners();
 
     return this._element;
@@ -28,15 +31,13 @@ export class Card {
 
   _handleOpenPopup() {
     openPopup(this._popup)
-    this._photo.src = this._image;
-    this._photo.alt = this._place;
-    this._description.textContent = this._place;
+    this._showPhoto.src = this._image;
+    this._showPhoto.alt = this._place;
+    this._showDescription.textContent = this._place;
   }
 
   _handleLikeClick() {
-    this._element
-      .querySelector('.element__like')
-      .classList.toggle('element__like_active');
+    this._likeButton.classList.toggle('element__like_active');
   }
 
   _handleDelCard() {
@@ -53,9 +54,7 @@ export class Card {
       }
     });
 
-    this._element
-      .querySelector('.element__photo')
-      .addEventListener('click', () => {
+    this._photo.addEventListener('click', () => {
         this._handleOpenPopup();
       });
 
