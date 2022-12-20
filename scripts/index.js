@@ -54,6 +54,8 @@ function addFormSubmitHandler(evt) {
   formAddCard.reset();
   closePopup(popupAddCard);
 }
+const validationAddForm = new FormValidator(validationConfig, formAddCard);
+ validationAddForm.enableValidation()
 
 //редактирование профиля
 openPopupEditButton.addEventListener('click', () => {
@@ -72,8 +74,5 @@ function editFormSubmitHandler(evt) {
   userJob.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
-//валидация форм
-const validationAddForm = new FormValidator(validationConfig, formAddCard);
- validationAddForm.enableValidation()
 const validationEditForm = new FormValidator(validationConfig, formEditProfile);
 validationEditForm.enableValidation()
