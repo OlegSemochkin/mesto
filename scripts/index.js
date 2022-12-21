@@ -51,7 +51,7 @@ popupAddOpenButton.addEventListener('click', () => {
   openPopup(popupAddCard);
   validationAddForm.hideInputError(placeInput);
   validationAddForm.hideInputError(linkInput);
-  validationAddForm.disabledSubmitButton;
+  validationAddForm.disableSubmitButton();
   formAddCard.reset();
 });
 formAddCard.addEventListener('submit', addFormSubmitHandler);
@@ -70,7 +70,7 @@ PopupEditOpenButton.addEventListener('click', () => {
   openPopup(popupEditProfile);
   validationEditForm.hideInputError(nameInput);
   validationEditForm.hideInputError(jobInput);  
-  validationEditForm.disabledSubmitButton();
+  validationEditForm.disableSubmitButton();
   nameInput.value = userName.textContent;
   jobInput.value = userJob.textContent;
 });

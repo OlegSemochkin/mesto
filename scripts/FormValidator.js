@@ -50,18 +50,18 @@ export class FormValidator {
 
   _setSubmitButtonState() {
     if (this._isFormInvalid()) {
-      this.disabledSubmitButton()
+      this.disableSubmitButton()
     } else {
-      this._activeSubmitButton()
+      this._activateSubmitButton()
     }
   }
 
-  disabledSubmitButton() {
+  disableSubmitButton() {
     this._submitButton.setAttribute('disabled', true);
     this._submitButton.classList.add(`${this._inactiveButtonClass}`);
   }
 
-  _activeSubmitButton() {
+  _activateSubmitButton() {
     this._submitButton.removeAttribute('disabled');
     this._submitButton.classList.remove(`${this._inactiveButtonClass}`);
   }
