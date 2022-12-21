@@ -1,25 +1,18 @@
 import {openPopup} from './utils.js'
 export class Card {
-  constructor(place, image, bigPhoto) {
+  constructor(place, image, bigPhoto, getTemplate) {
     this._place = place;
     this._image = image;
     this._popup = bigPhoto.popup;
     this._showPhoto = bigPhoto.photo;
     this._showDescription = bigPhoto.description;
+    this._getTemplate = getTemplate;
     this._element = this._getTemplate();
     this._title = this._element.querySelector('.element__place');
     this._photo = this._element.querySelector('.element__photo');
-    this._likeButton = this._element.querySelector('.element__like')
+    this._likeButton = this._element.querySelector('.element__like');
   }
-
-  _getTemplate() {
-    const cardTemplate = document
-      .querySelector('#card')
-      .content.querySelector('.element')
-      .cloneNode(true);
-    return cardTemplate;
-  }
-
+  
   generateCard() {    
     this._title.textContent = this._place;
     this._photo.src = this._image;
@@ -42,6 +35,7 @@ export class Card {
 
   _handleDelCard() {
     this._element.remove();
+    this._element = null
   }
 
   _setEventListeners() {

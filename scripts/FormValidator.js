@@ -8,17 +8,14 @@ export class FormValidator {
     this._errorClass = config.errorClass;
     this._form = form;
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
   _setInputEventListeners() {
-    this._inputList = Array.from(
-      this._form.querySelectorAll(this._inputSelector)
-    );
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._isValid(input);
-        this._setSubmitButtonState(input);
+        this._setSubmitButtonState();
       });
     });
   }
@@ -27,7 +24,7 @@ export class FormValidator {
     if (!input.validity.valid) {
       this._showInputError(input, input.validationMessage);
     } else {
-      this._hideInputError(input);
+      this.hideInputError(input);
     }
   }
 
@@ -38,7 +35,7 @@ export class FormValidator {
     input.classList.add(this._inputErrorClass);
   }
 
-  _hideInputError(input) {
+  hideInputError(input) {
     this._errorElement = this._form.querySelector(`.${input.name}-error`);
     this._errorElement.textContent = '';
     this._errorElement.classList.remove(`'${this._errorClass}`);
@@ -53,14 +50,20 @@ export class FormValidator {
 
   _setSubmitButtonState() {
     if (this._isFormInvalid()) {
-      this._submitButton.setAttribute('disabled', true);
-      this._submitButton.classList.add(`${this._inactiveButtonClass}`);
+      this.disabledSubmitButton()
     } else {
-      this._submitButton.removeAttribute('disabled');
-      this._submitButton.classList.remove(`${this._inactiveButtonClass}`);
+      this._activeSubmitButton()
     }
-    console.log(this._isFormInvalid());
-    console.log(this._submitButton);
+  }
+
+  disabledSubmitButton() {
+    this._submitButton.setAttribute('disabled', true);
+    this._submitButton.classList.add(`${this._inactiveButtonClass}`);
+  }
+
+  _activeSubmitButton() {
+    this._submitButton.removeAttribute('disabled');
+    this._submitButton.classList.remove(`${this._inactiveButtonClass}`);
   }
 
   enableValidation() {
