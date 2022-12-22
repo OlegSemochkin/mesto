@@ -3,7 +3,6 @@ import { initialCards, validationConfig} from './data.js';
 import {FormValidator} from './FormValidator.js';
 import { openPopup, closePopup} from './utils.js';
 
-const cardTemplate = document.querySelector('#card').content
 //добавление
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 const popupAddCard = document.querySelector('.popup_add');
@@ -12,14 +11,14 @@ const placeInput = formAddCard.elements.place;
 const linkInput = formAddCard.elements.link;
 //редактир
 const profileForm = document.querySelector('.profile__profile-info');
-const PopupEditOpenButton = profileForm.querySelector('.profile__edit-button');
+const popupEditOpenButton = profileForm.querySelector('.profile__edit-button');
 const userName = profileForm.querySelector('.profile__name');
 const userJob = profileForm.querySelector('.profile__job');
 const popupEditProfile = document.querySelector('.popup_edit');
 const formEditProfile = document.forms.edit;
 const nameInput = formEditProfile.elements.firstname;
 const jobInput = formEditProfile.elements.job;
-//для открытия
+//для открытия карточки
 const bigPhoto = {
   popup: document.querySelector('.popup_image'),
   photo:  document.querySelector('.element__img'),
@@ -34,15 +33,11 @@ const renderCard = (dataCard, cardContainer) => {
   cardContainer.prepend(cardElement);
 }
 
-const getTemplate = () => {
-  const cardTemplate = document.querySelector('#card')
-   .content.querySelector('.element').cloneNode(true)
-    return cardTemplate;
-}
+const cardTemplate = document.querySelector('#card').content
 
 //создание карт из массива
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, bigPhoto, getTemplate);
+  const card = new Card(item.name, item.link, bigPhoto, cardTemplate);
   renderCard(card, gallery)
 });
 
@@ -57,7 +52,7 @@ popupAddOpenButton.addEventListener('click', () => {
 formAddCard.addEventListener('submit', addFormSubmitHandler);
 function addFormSubmitHandler(evt) {
   evt.preventDefault();
-  const card = new Card(placeInput.value, linkInput.value, bigPhoto, getTemplate);
+  const card = new Card(placeInput.value, linkInput.value, bigPhoto, cardTemplate);
   renderCard(card,gallery)
   formAddCard.reset();
   closePopup(popupAddCard);
@@ -66,7 +61,7 @@ const validationAddForm = new FormValidator(validationConfig, formAddCard);
  validationAddForm.enableValidation()
 
 //редактирование профиля
-PopupEditOpenButton.addEventListener('click', () => {
+popupEditOpenButton.addEventListener('click', () => {
   openPopup(popupEditProfile);
   validationEditForm.hideInputError(nameInput);
   validationEditForm.hideInputError(jobInput);  
