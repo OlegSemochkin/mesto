@@ -2,7 +2,7 @@ import {Card} from '../components/Card.js';
 import { initialCards, validationConfig} from '../utils/constantce.js';
 import {FormValidator} from '../components/FormValidator.js';
 import { openPopup, closePopup} from '../utils/utils.js';
-import Section from '../components/Section.js';
+import Section from '../components/Section.';
 
 //добавление
 const popupAddOpenButton = document.querySelector('.profile__add-button');
