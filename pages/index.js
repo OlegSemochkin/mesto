@@ -1,7 +1,8 @@
-import {Card} from './Card.js';
-import { initialCards, validationConfig} from './data.js';
-import {FormValidator} from './FormValidator.js';
-import { openPopup, closePopup} from './utils.js';
+import {Card} from '../components/Card.js';
+import { initialCards, validationConfig} from '../utils/constantce.js';
+import {FormValidator} from '../components/FormValidator.js';
+import { openPopup, closePopup} from '../utils/utils.js';
+import Section from '../components/Section.js';
 
 //добавление
 const popupAddOpenButton = document.querySelector('.profile__add-button');
@@ -27,19 +28,26 @@ const bigPhoto = {
 
 //рендеринг карт в разметку
 const gallery = document.querySelector('.elements__gallery'); 
-
-const renderCard = (dataCard, cardContainer) => {
-  const cardElement = dataCard.generateCard();
-  cardContainer.prepend(cardElement);
-}
+console.log(gallery)
+// const renderCard = (dataCard, cardContainer) => {
+//   const cardElement = dataCard.generateCard();
+//   cardContainer.prepend(cardElement);
+// }
 
 const cardTemplate = document.querySelector('#card').content
 
 //создание карт из массива
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, bigPhoto, cardTemplate);
-  renderCard(card, gallery)
-});
+const cardList = new Section({
+  data: initialCards,
+  renderer: (item)=> {
+    const card = new Card(item.name, item.link, bigPhoto, cardTemplate);
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement)
+   }
+  }, 
+  gallery
+);
+cardList.renderItems ()
 
 //добавление карточки вручную
 popupAddOpenButton.addEventListener('click', () => {
@@ -53,7 +61,8 @@ formAddCard.addEventListener('submit', addFormSubmitHandler);
 function addFormSubmitHandler(evt) {
   evt.preventDefault();
   const card = new Card(placeInput.value, linkInput.value, bigPhoto, cardTemplate);
-  renderCard(card,gallery)
+  const cardElement = card.generateCard();
+  cardList.addItem(cardElement)
   formAddCard.reset();
   closePopup(popupAddCard);
 }
