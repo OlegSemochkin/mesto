@@ -1,20 +1,22 @@
-import {openPopup} from '../utils/utils.js'
+//import {openPopup} from '../utils/utils.js'
 export class Card {
-  constructor(place, image, bigPhoto, cardTemplate) {
+  constructor(place, image, handleCardClick, cardTemplate) {
     this._place = place;
     this._image = image;
-    this._popup = bigPhoto.popup;
-    this._showPhoto = bigPhoto.photo;
-    this._showDescription = bigPhoto.description;
-    this._cardTemplate = cardTemplate;
+    //this._cardTemplate = cardTemplate;
+    this._cardTemplate = document.querySelector('#card').content
     this._element = this._getTemplate();
     this._title = this._element.querySelector('.element__place');
     this._photo = this._element.querySelector('.element__photo');
     this._likeButton = this._element.querySelector('.element__like');
+    this._handleCardClick = handleCardClick
+    //console.log(this._cardTemplate)
   }
 
   _getTemplate() {
+    
     const newCard = this._cardTemplate.querySelector('.element').cloneNode(true)
+    //console.log(newCard)
     return newCard
   }
   
@@ -26,14 +28,7 @@ export class Card {
 
     return this._element;
   }
-
-  _handleOpenPopup() {
-    openPopup(this._popup)
-    this._showPhoto.src = this._image;
-    this._showPhoto.alt = this._place;
-    this._showDescription.textContent = this._place;
-  }
-
+  
   _handleLikeClick() {
     this._likeButton.classList.toggle('element__like_active');
   }
@@ -54,9 +49,22 @@ export class Card {
     });
 
     this._photo.addEventListener('click', () => {
-        this._handleOpenPopup();
-      });
-
+        this._handleCardClick
+        console.log('нажали')
+        console.log(this._handleCardClick)
+    }
+);
+      
      
   }
+  // _handleCardClick() {
+  //   document.querySelector('.popup_image')
+  //   .classList.add('popup_opened')
+  // }
 }
+// _handleOpenPopup() {
+  //   openPopup(this._popup)
+  //   this._showPhoto.src = this._image;
+  //   this._showPhoto.alt = this._place;
+  //   this._showDescription.textContent = this._place;
+  // }
